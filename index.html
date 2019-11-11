@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Memory Game</title>
+		<meta name="viewport" content= "width=device-width, initial-scale=1.0">
+		<meta charset="utf-8">
+		<link rel="stylesheet" href = "css/styles.css">
+		<script src="https://use.fontawesome.com/31927213ed.js"></script>
+	</head>
+	<body>
+
+		<!-- stats|control start -->
+		<div class="top">
+			<h1 class="mob">Matching Game</h1>
+			<div class="stats">
+				<span class="stars">
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+				</span>
+				<span>
+					<b>0</b>
+					<em> Moves</em>
+				</span>
+				<span class="cursor" id="refresh"><i class="fa fa-refresh"></i></span>
+				<span id="elapsed"><b>0:00</b></span>
+			</div>
+		</div>
+		<!-- stats|control end -->
+
+		<!-- grid start -->
+		<div class="container">
+			<div class="card cursor">
+				<div class="front"></div>
+				<div class="back">
+					<i class="fa fa-3x"></i>
+				</div>
+			</div>
+			<div class="card cursor">
+				<div class="front"></div>
+				<div class="back">
+					<i class="fa fa-3x"></i>
+				</div>
+			</div>
+			<div class="card cursor">
+				<div class="front"></div>
+				<div class="back">
+					<i class="fa fa-3x"></i>
+				</div>
+			</div>
+			<div class="card cursor">
+				<div class="front"></div>
+				<div class="back">
+					<i class="fa fa-3x"></i>
+				</div>
+			</div>
+			<div class="card cursor">
+				<div class="front"></div>
+				<div class="back">
+					<i class="fa fa-3x"></i>
+				</div>
+			</div>
+			<div class="card cursor">
+				<div class="front"></div>
+				<div class="back">
+					<i class="fa fa-3x"></i>
+				</div>
+			</div>
+			<div class="card cursor">
+				<div class="front"></div>
+				<div class="back">
+					<i class="fa fa-3x"></i>
+				</div>
+			</div>
+			<div class="card cursor">
+				<div class="front"></div>
+				<div class="back">
+					<i class="fa fa-3x"></i>
+				</div>
+			</div>
+			<div class="card cursor">
+				<div class="front"></div>
+				<div class="back">
+					<i class="fa fa-3x"></i>
+				</div>
+			</div>
+			<div class="card cursor">
+				<div class="front"></div>
+				<div class="back">
+					<i class="fa fa-3x"></i>
+				</div>
+			</div>
+			<div class="card cursor">
+				<div class="front"></div>
+				<div class="back">
+					<i class="fa fa-3x"></i>
+				</div>
+			</div>
+			<div class="card cursor">
+				<div class="front"></div>
+				<div class="back">
+					<i class="fa fa-3x"></i>
+				</div>
+			</div>
+			<div class="card cursor">
+				<div class="front"></div>
+				<div class="back">
+					<i class="fa fa-3x"></i>
+				</div>
+			</div>
+			<div class="card cursor">
+				<div class="front"></div>
+				<div class="back">
+					<i class="fa fa-3x"></i>
+				</div>
+			</div>
+			<div class="card cursor">
+				<div class="front"></div>
+				<div class="back">
+					<i class="fa fa-3x"></i>
+				</div>
+			</div>
+			<div class="card cursor">
+				<div class="front"></div>
+				<div class="back">
+					<i class="fa fa-3x"></i>
+				</div>
+			</div>
+		</div>
+		<!-- grid end -->
+
+		<!-- winner card start -->
+		<div class="card-container">
+			<div class="win-card">
+				<h1>You WIN!</h1>
+				<hr class="my-hr">
+				<div class="stat" id="finished">
+					<i class="fa fa-hourglass-end"></i>
+					<b>0:00</b>
+				</div>
+				<div class="stat" id="moves">
+					<i class="fa fa-mouse-pointer"></i>
+					<b>25</b>
+				</div>
+				<div class="stat" id="stars">
+					<i class="fa fa-star"></i>
+					<b>3</b>
+				</div>
+				<hr class="my-hr">
+				<button id="again">Play Again</button>
+			</div>
+		</div>
+		<!-- winner card end -->
+
+		<script src="js/app.js"></script>
+	</body>
+</html>
