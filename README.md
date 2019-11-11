@@ -1,5 +1,5 @@
 
-#FEND_UDACITY_ND - MEMORY_GAME_PROJECT
+# FEND_UDACITY_ND - MEMORY_GAME_PROJECT
 
 This project is a matching game. There's 8 images, 8 pairs. I used:
 	*HTML5
