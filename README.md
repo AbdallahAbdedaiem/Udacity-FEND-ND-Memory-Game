@@ -6,3 +6,5 @@ This project is a matching game. There's 8 images, 8 pairs. I used:
 	* CSS3
 	* JavaScript
 I used my own design(html,css) for the game. So  this affected a little the way I set up the game logic(JS).
+## Preview
+https://abdallahabdedaiem.github.io/Udacity-FEND-ND-Memory-Game/
