@@ -5,44 +5,43 @@
 
  document.addEventListener("DOMContentLoaded", function() {
 
-	 const container = document.getElementsByClassName("container")[0];
-	 const movesDisplay = document.querySelector(".stats b");
-	 const refresh = document.getElementById("refresh");
-	 const stars = [...document.querySelectorAll(".stars i")];
-	 const elapsed_time = document.querySelector("#elapsed b");
-	 const cards = document.getElementsByClassName("card");
-	 const againBtn = document.querySelector("#again");
-	 const winContainer = document.querySelector(".card-container");
+	const container = document.getElementsByClassName("container")[0];
+	const movesDisplay = document.querySelector(".stats b");
+	const refresh = document.getElementById("refresh");
+	const stars = [...document.querySelectorAll(".stars i")];
+	const elapsed_time = document.querySelector("#elapsed b");
+	const cards = document.getElementsByClassName("card");
+	const againBtn = document.querySelector("#again");
+	const winContainer = document.querySelector(".card-container");
 
-	 window.screen;
-	 window.valid_pairs = 0;
-	 const photos = ["fa-anchor","fa-bath","fa-bicycle","fa-ambulance",
-	 				"fa-bomb","fa-book","fa-bolt","fa-briefcase",
-	 				"fa-anchor","fa-bath","fa-bicycle","fa-ambulance",
-	 				"fa-bomb","fa-book","fa-bolt","fa-briefcase"];
-	 window.moves = 0;
-	 window.elapsedTime = 0;
-	 window.mySetInterval;
-	 window.checkFor;
+	window.screen;
+	window.valid_pairs = 0;
+	const photos = ["fa-anchor","fa-bath","fa-bicycle","fa-ambulance",
+				"fa-bomb","fa-book","fa-bolt","fa-briefcase",
+				"fa-anchor","fa-bath","fa-bicycle","fa-ambulance",
+				"fa-bomb","fa-book","fa-bolt","fa-briefcase"];
+	window.moves = 0;
+	window.elapsedTime = 0;
+	window.mySetInterval;
+	window.checkFor;
 
-	 initGame(cards, photos,movesDisplay,stars,elapsed_time);
+	initGame(cards, photos,movesDisplay,stars,elapsed_time);
 
-	 againBtn.addEventListener("click", function(event) {
+	againBtn.addEventListener("click", function(event) {
 	 	this.style.opacity = "0";
-	 	const element = this;
 		winContainer.style.visibility = "hidden";
 		initGame(cards, photos,movesDisplay,stars,elapsed_time);
-	 });
+	});
 
-	 makeItResp(cards);
+	makeItResp(cards);
 
-	 window.addEventListener("resize", function() {
+	window.addEventListener("resize", function() {
 	 	makeItResp(cards);
-	 });
+	});
 
-	 refresh.addEventListener("click",() => {
+	refresh.addEventListener("click",() => {
 	 	initGame(cards,photos,movesDisplay,stars,elapsed_time);
-	 });
+	});
 
  	container.addEventListener('click', function(event) {
 	 	const card = event.target.closest(".card");
@@ -138,13 +137,15 @@ function makeItResp(cards) {
 
 /**
 * @description shuffles the given array
-* @param {Array} a
+* @param {Array} array
 */
 function shuffle(a) {
-    for (let i = a.length - 1; i > 0; i--) {
+	const array = a.slice();
+    for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [a[i], a[j]] = [a[j], a[i]];
+        [array[i], array[j]] = [array[j], array[i]];
     }
+	return array;
 }
 
 /**
@@ -157,7 +158,17 @@ function displayCards(cards, photos) {
 	 	cards[i].querySelector('i').classList.add(photos[i]);
 	 	cards[i].setAttribute('id',i);
 	 	cards[i].setAttribute("data-icon",photos[i]);
+		cards[i].setAttribute('disabled', true);
+		cards[i].classList.add('flip');
 	 }
+	 setTimeout(() => {
+		for (let i = 0; i < 16; i++) {
+			cards[i].classList.remove('flip');
+		}
+		for (let i = 0; i < 16; i++) {
+			cards[i].setAttribute('disabled', false);
+		}
+	 }, 3000)
 }
 
 /**
@@ -181,9 +192,9 @@ function initGame(cards,photos,movesDisplay,stars,elapsed_time) {
 		card.className = "card cursor";
 	}
 	movesDisplay.textContent = window.moves;
-	//shuffle(photos);
-	displayCards(cards, photos);
 	initializeStars(stars);
+	const shuffledPhotos = shuffle(photos);
+	displayCards(cards, shuffledPhotos);
 }
 
 /**
